@@ -1,5 +1,9 @@
 package base;
-
+/*
+ *  UCF COP3330 Summer 2021 Assignment 1 Solution
+ *  Copyright 2021 Glenroy Little
+ */
+import java.util.Scanner;
 /**
  Program 15 - Legal Driving Age
  You can test for equality, but you may need to test to see how a number compares to a known value and display a message if the number is too low or too high.
@@ -27,8 +31,27 @@ package base;
  */
 public class App 
 {
+    static Scanner in = new Scanner(System.in);
+
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        App myApp = new App();
+        Integer age = myApp.getage();
+        myApp.output(age);
+    }
+
+    public Integer getage()
+    {
+        System.out.print("What is your age? ");
+        Integer age = in.nextInt();
+        return age;
+    }
+
+    public void output(Integer age)
+    {
+        final String msg = age >= 16
+                ? "You are old enough to legally drive."
+                : "You are not old enough to legally drive.";
+        System.out.println(msg);
     }
 }
